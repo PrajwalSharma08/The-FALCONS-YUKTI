@@ -1,6 +1,0 @@
-streamlit
-groq
-python-dotenv
-pillow
-pandas
-yfinance
