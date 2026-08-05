@@ -144,7 +144,7 @@ with st.sidebar:
     if logo_base64:
         st.markdown(f'<center><img src="data:image/png;base64,{logo_base64}" style="width:90px; border-radius:50%; border:2px solid #00d4ff;"></center>', unsafe_allow_html=True)
     else:
-        st.markdown("<h2 style='color:#00d4ff; font-family:Orbitron; text-align:center;'>鹰 TRADEVISION</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='color:#00d4ff; font-family:Orbitron; text-align:center;'> TRADEVISION</h2>", unsafe_allow_html=True)
     
     st.markdown("---")
     st.write("### Problem Statement Focus")
@@ -238,7 +238,7 @@ with col_right:
     for n in news:
         st.markdown(f"<div style='background:rgba(255,255,255,0.03); padding:10px; border-radius:10px; margin-bottom:8px; border-left:3px solid #00d4ff; font-size:13px;'>{n}</div>", unsafe_allow_html=True)
 
-    # --- PROBLEM 4-C: News Impact Engine (NEW SECTION) ---
+    
     st.markdown("<br>### 📊 market news Impact", unsafe_allow_html=True)
     st.caption("Marking assets affected by major global events")
     

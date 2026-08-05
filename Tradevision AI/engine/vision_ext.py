@@ -24,7 +24,7 @@ def analyze_chart(pil_image):
     # 2. AI ko Request bhejna (Expert Prompting)
     try:
         completion = client.chat.completions.create(
-            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            model="qwen/qwen3.6-27b",
             messages=[
                 {
                     "role": "user",
