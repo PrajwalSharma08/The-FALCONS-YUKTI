@@ -52,3 +52,24 @@ Algorithmic Alerts: Background scanning of multiple watchlists with real-time Te
 AI Trading Journal: A self-learning database that tracks a user's trade history to provide personalized feedback and performance metrics.
 
 Team: The Visionaries Prajwal Sharma (Lead), Piyush Patel (Frontend), & BBS College Engineering Squad.
+
+## Problem Statement
+[Write problem statement here]
+
+## Dataset
+[Write dataset information here]
+
+## Methodology
+[Write methodology details here]
+
+## Installation
+[Write installation steps here]
+
+## Results
+[Write results here]
+
+## Screenshots
+[Add screenshots here]
+
+## Future Work
+[Write future work here]
