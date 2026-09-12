@@ -61,7 +61,9 @@ def get_neural_events():
             response_format={"type": "json_object"}
         )
         
-        data = json.loads(response.choices[0].message.content)
+        raw_content = response.choices[0].message.content.strip()
+        cleaned_content = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_content, flags=re.IGNORECASE)
+        data = json.loads(cleaned_content)
         # Handle different JSON keys if AI wraps the list
         events = data.get("events", data) if isinstance(data, dict) else data
         return events
@@ -141,4 +143,4 @@ async def confluence_analysis(file_short: UploadFile = File(...), file_long: Upl
         return {"success": False, "error": str(e)}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=9514)

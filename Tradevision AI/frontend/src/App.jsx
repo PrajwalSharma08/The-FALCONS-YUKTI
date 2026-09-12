@@ -80,15 +80,15 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const tickerRes = await fetch("http://localhost:8000/ticker");
+        const tickerRes = await fetch("http://localhost:9514/ticker");
         const tickerData = await tickerRes.json();
         if (tickerData.success) setPrices(tickerData.prices);
 
-        const heatmapRes = await fetch("http://localhost:8000/heatmap");
+        const heatmapRes = await fetch("http://localhost:9514/heatmap");
         const hMapData = await heatmapRes.json();
         if (hMapData.success) setHeatmapData(hMapData.data);
 
-        const eventRes = await fetch("http://localhost:8000/economic-events");
+        const eventRes = await fetch("http://localhost:9514/economic-events");
         const eData = await eventRes.json();
         if (eData.success) setEvents(eData.events);
       } catch (err) { console.log("Backend offline."); }
@@ -152,7 +152,7 @@ const App = () => {
     if (mode === 'standard' && !file) return alert("Bhai, pehle chart toh upload karo!");
     setLoading(true);
     const formData = new FormData();
-    let endpoint = mode === 'standard' ? "http://localhost:8000/analyze" : "http://localhost:8000/analyze-confluence";
+    let endpoint = mode === 'standard' ? "http://localhost:9514/analyze" : "http://localhost:9514/analyze-confluence";
     if (mode === 'standard') formData.append("file", file);
     else { formData.append("file_short", file); formData.append("file_long", fileLong); }
 
@@ -192,7 +192,7 @@ const App = () => {
     setMessages(p => [...p, userMsg]);
     setChatInput(""); setChatLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const res = await fetch("http://localhost:9514/chat", {
         method: "POST", headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: chatInput, context: report || "No context yet." })
       });

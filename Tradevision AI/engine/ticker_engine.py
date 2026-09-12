@@ -1,4 +1,5 @@
 import os
+import re
 from groq import Groq
 import json
 from dotenv import load_dotenv
@@ -15,7 +16,9 @@ def get_neural_prices():
             model="llama-3.3-70b-versatile",
             response_format={"type": "json_object"}
         )
-        return json.loads(response.choices[0].message.content)
+        raw = response.choices[0].message.content.strip()
+        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.IGNORECASE)
+        return json.loads(cleaned)
     except:
         return {"NIFTY": 22124.5, "GOLD": 2040.0, "BTC": 64230.15, "ETH": 3452.1}
 
@@ -43,7 +46,9 @@ def get_global_heatmap():
             model="llama-3.3-70b-versatile",
             response_format={"type": "json_object"}
         )
-        return json.loads(response.choices[0].message.content)
+        raw = response.choices[0].message.content.strip()
+        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.IGNORECASE)
+        return json.loads(cleaned)
     except Exception as e:
         print(f"Heatmap Error: {e}")
         return {
