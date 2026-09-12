@@ -28,7 +28,7 @@ def get_falcon_response(user_query, report_context):
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_query}
             ],
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             temperature=0.5
         )
         

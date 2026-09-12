@@ -13,7 +13,7 @@ def get_neural_prices():
         prompt = "Provide current estimated prices for NIFTY, GOLD, BTC, ETH in raw JSON format. Numbers only."
         response = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             response_format={"type": "json_object"}
         )
         raw = response.choices[0].message.content.strip()
@@ -43,7 +43,7 @@ def get_global_heatmap():
         """
         response = client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="llama-3.3-70b-versatile",
+            model="qwen/qwen3.6-27b",
             response_format={"type": "json_object"}
         )
         raw = response.choices[0].message.content.strip()
