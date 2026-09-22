@@ -24,7 +24,7 @@ def analyze_chart(pil_image):
     # 2. AI ko Request bhejna (Expert Prompting)
     try:
         completion = client.chat.completions.create(
-            model="qwen/qwen3.6-27b",
+            model="qwen/qwen3.8-27b",
             messages=[
                 {
                     "role": "user",
@@ -51,7 +51,7 @@ def analyze_chart(pil_image):
                 }
             ],
             temperature=0.2, # Accuracy ke liye temperature kam rakha hai
-            max_tokens=800,
+            max_tokens=600,
         )
         return completion.choices[0].message.content
     

@@ -94,7 +94,7 @@ const App = () => {
       } catch (err) { console.log("Backend offline."); }
     };
     fetchData();
-    const interval = setInterval(fetchData, 25000);
+    const interval = setInterval(fetchData, 60000);
     return () => clearInterval(interval);
   }, []);
 
